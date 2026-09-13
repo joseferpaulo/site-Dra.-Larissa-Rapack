@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth text-brand-dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dra Larissa Rapack | Clínica de Harmonização Facial no Centro de Araranguá - SC</title>
+  <meta name="description" content="Sua Clínica de estética avançada no Centro de Araranguá, próxima à Praça Hercílio Luz. Resultados naturais, preenchimento labial e bioestimuladores. Agende.">
+
+  <!-- Schema LocalBusiness (GEO/SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "RPK Beauty Clinic - Dra Larissa Rapack",
+    "description": "Clínica de estética avançada e harmonização facial e corporal no Centro de Araranguá. Resultados naturais, preenchimento labial e bioestimuladores.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Getúlio Vargas, 227 - Sl 19 - Edifício Fronteira",
+      "addressLocality": "Araranguá",
+      "addressRegion": "SC",
+      "postalCode": "88900-973",
+      "addressCountry": "BR"
+    },
+    "telephone": "+5548999616804",
+    "areaServed": ["Centro", "Cidade Alta", "Coloninha", "Mato Alto"]
+  }
+  </script>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#759EBC',
+              blue_light: '#f2f5f9',
+              taupe: '#9E8B7D',
+              taupe_light: '#faf8f6',
+              dark: '#2a2a2a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          spacing: {
+            '18': '4.5rem',
+            '112': '28rem',
+            '128': '32rem',
+          },
+          boxShadow: {
+            'soft': '0 10px 40px -10px rgba(0,0,0,0.05)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Base Resets */
+    body {
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; /* Fix for horizontal leak */
+    }
+
+    /* Visual System (Organic shapes & Lines) */
+    .shape-soft {
+      border-radius: 40px;
+    }
+    .shape-organic {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    .shape-organic-2 {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    .line-taupe {
+      border: 1px solid rgba(158, 139, 125, 0.2);
+    }
+    .line-blue {
+      border: 1px solid rgba(117, 158, 188, 0.3);
+    }
+
+    /* Compare Component CSS */
+    .compare-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      user-select: none;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(158, 139, 125, 0.2);
+    }
+    .compare-before, .compare-after {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .compare-after-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      clip-path: inset(0 50% 0 0); /* Default 50% */
+      will-change: clip-path;
+    }
+    .compare-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #ffffff;
+      z-index: 20;
+      transform: translateX(-50%);
+      cursor: ew-resize;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 8px 1.5px rgba(255, 255, 255, 0.8), 0 0 15px 3px rgba(117, 158, 188, 0.35);
+    }
+    .compare-handle-btn {
+      width: 32px;
+      height: 32px;
+      background-color: #759EBC;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 12px 2px rgba(117, 158, 188, 0.6), 0 4px 10px rgba(0, 0, 0, 0.15);
+      border: 2px solid white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .compare-wrapper:hover .compare-handle-btn {
+      transform: scale(1.08);
+      box-shadow: 0 0 18px 4px rgba(117, 158, 188, 0.7);
+    }
+
+    /* Magical Sparkle Particle System */
+    .magic-sparkle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 25;
+      animation: magic-sparkle-fade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform: translate(-50%, -50%);
+    }
+    .magic-sparkle.dot {
+      border-radius: 50%;
+    }
+    .magic-sparkle.star {
+      clip-path: polygon(50% 0%, 63% 35%, 100% 50%, 63% 65%, 50% 100%, 37% 65%, 0% 50%, 37% 35%);
+    }
+    .magic-sparkle.butterfly {
+      animation: butterfly-float 1.1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+    @keyframes magic-sparkle-fade {
+      0% { transform: translate(-50%, -50%) scale(0.3) rotate(0deg); opacity: 1; }
+      50% { opacity: 1; filter: brightness(1.5); }
+      100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.4) rotate(180deg); opacity: 0; }
+    }
+    @keyframes butterfly-float {
+      0% { transform: translate(-50%, -50%) scale(0.2) rotate(0deg); opacity: 0; }
+      25% { opacity: 1; transform: translate(calc(-50% + var(--tx) * 0.3), calc(-50% + var(--ty) * 0.3)) scale(1.1) rotate(var(--rot)); }
+      100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty) - 20px)) scale(0.3) rotate(calc(var(--rot) * 1.8)); opacity: 0; }
+    }
+
+    /* Mobile Menu */
+    #mobile-menu {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    #mobile-menu.open {
+      transform: translateY(0);
+    }
+
+    /* Liquid Glass Dock & Slide Tabs (Mobile) */
+    .liquid-glass-dock {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 
+        0 20px 40px -10px rgba(0, 0, 0, 0.15),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+      border-radius: 9999px;
+      padding: 6px;
+    }
+    .slide-indicator {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, #8a786a 0%, #9E8B7D 100%);
+      box-shadow: 
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.3),
+        0 4px 12px rgba(158, 139, 125, 0.4);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 1;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-brand-taupe_light relative pb-24 md:pb-0">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-40 border-b line-taupe">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="font-serif text-xl md:text-2xl tracking-widest text-brand-taupe flex items-center gap-2">
+        <span class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center">
+          <span class="w-4 h-4 shape-organic bg-brand-blue"></span>
+        </span>
+        <span aria-label="Clínica Dra Larissa Rapack Araranguá">LARISSA RAPACK</span>
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider font-medium text-brand-dark/70">
+        <a href="#resultados" class="hover:text-brand-taupe transition-colors">Resultados</a>
+        <a href="#tratamentos" class="hover:text-brand-taupe transition-colors">Procedimentos</a>
+        <a href="#avaliacoes" class="hover:text-brand-taupe transition-colors">Avaliações</a>
+        <a href="#sobre" class="hover:text-brand-taupe transition-colors">Sobre mim</a>
+      </nav>
+
+      <!-- Desktop CTA / Mobile Quick CTA -->
+      <div class="flex items-center gap-3">
+        <!-- Ícone Instagram -->
+        <a href="https://instagram.com/dralarissarapack" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-brand-taupe_light text-brand-taupe hover:bg-brand-taupe hover:text-white transition-all flex items-center justify-center border line-taupe shadow-sm" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+          </svg>
+        </a>
+
+        <a href="#agendar" class="bg-brand-taupe text-white px-5 py-2 text-xs md:text-sm uppercase tracking-widest rounded-full hover:bg-brand-dark transition-colors shadow-sm">
+          Agendar <span class="hidden md:inline">Avaliação</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE FLOATING LIQUID GLASS SLIDE TABS DOCK (Apenas Mobile) -->
+  <div class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-md md:hidden liquid-glass-dock overflow-hidden rounded-full">
+    <!-- Nav as a scrollable track -->
+    <nav class="relative z-10 flex items-center p-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-normal overflow-x-auto snap-x snap-mandatory hide-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+      <!-- CSS to hide scrollbar completely -->
+      <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+      </style>
+
+      <!-- Liquid Slide Indicator (absolute inside nav) -->
+      <div id="slide-indicator" class="slide-indicator transition-all duration-300"></div>
+
+      <a href="#resultados" class="mobile-tab flex-shrink-0 snap-center px-5 py-2.5 rounded-full transition-colors text-brand-dark/80 relative z-10" data-target="resultados">
+        Resultados
+      </a>
+      <a href="#tratamentos" class="mobile-tab flex-shrink-0 snap-center px-5 py-2.5 rounded-full transition-colors text-brand-dark/80 relative z-10" data-target="tratamentos">
+        Protocolos
+      </a>
+      <a href="#sobre" class="mobile-tab flex-shrink-0 snap-center px-5 py-2.5 rounded-full transition-colors text-brand-dark/80 relative z-10" data-target="sobre">
+        Sobre
+      </a>
+      <a href="#avaliacoes" class="mobile-tab flex-shrink-0 snap-center px-5 py-2.5 rounded-full transition-colors text-brand-dark/80 relative z-10" data-target="avaliacoes">
+        Avaliações
+      </a>
+      <a href="#agendar" class="mobile-tab flex-shrink-0 snap-center px-5 py-2.5 rounded-full transition-colors text-brand-dark/80 relative z-10" data-target="agendar">
+        Agendar
+      </a>
+    </nav>
+  </div>
+
+  <!-- HERO SECTION (Dobra 1) -->
+  <section class="relative w-full pt-24 pb-12 md:pt-48 md:pb-24 overflow-hidden bg-brand-taupe_light">
+    <!-- Abstract background lines -->
+    <svg class="absolute top-0 right-0 w-full h-full object-cover opacity-30 pointer-events-none" viewBox="0 0 1000 1000" fill="none">
+      <path d="M 1000 0 C 600 200 800 600 0 1000" stroke="#759EBC" stroke-width="1"/>
+      <path d="M 1000 100 C 500 300 900 800 0 1000" stroke="#9E8B7D" stroke-width="0.5"/>
+    </svg>
+
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6 md:gap-12 relative z-10">
+      
+      <!-- Text Content -->
+      <div class="w-full md:w-1/2 flex flex-col items-start text-left order-2 md:order-1">
+        <span class="text-brand-blue text-xs md:text-sm uppercase tracking-[0.2em] font-semibold mb-2 md:mb-4 flex items-center gap-3">
+          <span class="w-8 h-px bg-brand-blue"></span>
+          BIOMÉDICA ESTETA EM ARARANGUÁ
+        </span>
+        
+        <!-- H1 SEO Oculto (Método Farol) -->
+        <h1 class="sr-only">Clínica de Estética Avançada e Harmonização Facial no Centro em Araranguá - SC | Dra Larissa Rapack</h1>
+        
+        <h2 class="font-serif text-3xl sm:text-5xl lg:text-7xl leading-[1.1] text-brand-dark mb-4 md:mb-6">
+          Sua <i class="text-brand-taupe">essência</i>,<br/>
+          sua melhor versão.
+        </h2>
+        
+        <p class="text-gray-600 text-sm sm:text-lg lg:text-xl font-light mb-6 md:mb-10 max-w-lg leading-relaxed">
+          Rejuvenescimento e valorização dos seus traços com máxima naturalidade. Esqueça o "efeito travesseiro": unimos rigor científico e visão artística para realçar sua beleza única no coração de Araranguá.
+        </p>
+        
+        <a href="#agendar" class="bg-brand-taupe text-white px-8 py-3.5 md:py-4 text-xs md:text-sm uppercase tracking-widest rounded-full hover:bg-brand-dark transition-all w-full md:w-auto text-center font-medium shadow-lg shadow-brand-taupe/20">
+          Iniciar Minha Transformação
+        </a>
+      </div>
+
+      <!-- Image Content -->
+      <div class="w-full md:w-1/2 flex justify-center order-1 md:order-2">
+        <div class="relative w-full max-w-[210px] sm:max-w-[260px] md:max-w-[420px] aspect-[3/4]">
+          <!-- Organic Decors -->
+          <div class="absolute -inset-2 sm:-inset-4 md:-inset-6 bg-brand-blue/10 shape-organic rotate-12"></div>
+          <div class="absolute -inset-1 sm:-inset-2 md:-inset-4 border line-taupe shape-organic-2 -rotate-6"></div>
+          
+          <!-- Image -->
+          <img 
+            src="611006063_18414544882186188_683419822370738362_n.png" 
+            alt="Dra Larissa Rapack, biomédica esteta, em sua clínica de harmonização facial em Araranguá."
+            title="Dra Larissa Rapack - Araranguá"
+            loading="eager" decoding="async" 
+            class="relative z-10 w-full h-full object-cover object-top shape-organic shadow-soft bg-white/50 backdrop-blur-sm"
+          >
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESULTADOS REAIS (Dobra 2 - Move-up) -->
+  <section id="resultados" class="w-full py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="font-serif text-3xl md:text-5xl text-brand-dark mb-4">Resultados Imediatos e Naturais</h2>
+        <p class="text-gray-500 font-light text-lg">Arraste a linha central para visualizar a naturalidade e a elegância de cada procedimento.</p>
+      </div>
+
+      <!-- Grid of Compare Reveals -->
+      <div id="gallery-track" class="flex overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-3 gap-6 lg:gap-8 pb-8 -mx-6 px-6 lg:mx-0 lg:px-0 hide-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+        
+        <!-- Case 1: Harmonização -->
+        <div class="gallery-item w-[85vw] sm:w-[320px] shrink-0 snap-center lg:w-auto flex flex-col gap-4">
+          <div class="compare-wrapper aspect-[3/4]" data-slider>
+            <img src="Harmoniza%C3%A7%C3%A3o%20facial%20depois.jpg" class="compare-before" alt="Depois Harmonização" title="Harmonização Facial Depois" loading="lazy" decoding="async" style="transform: scale(1.12); transform-origin: center;">
+            <div class="compare-after-container">
+              <img src="Harmoniza%C3%A7%C3%A3o%20facial%20antes.jpeg" class="compare-after" alt="Antes Harmonização" title="Harmonização Facial Antes" loading="lazy" decoding="async">
+            </div>
+            <div class="compare-handle">
+              <div class="compare-handle-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M11 18l-6-6 6-6M13 6l6 6-6 6"/></svg>
+              </div>
+            </div>
+            <!-- Labels -->
+            <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-10 pointer-events-none">Antes</span>
+            <span class="absolute bottom-4 right-4 bg-brand-taupe/90 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-30 pointer-events-none">Depois</span>
+          </div>
+          <div class="flex justify-between items-start">
+            <div class="pr-2">
+              <h3 class="font-serif text-xl text-brand-dark">Harmonização Facial</h3>
+              <p class="text-sm text-gray-500 font-light">Reposição estrutural elegante sem perder a identidade.</p>
+            </div>
+            <button class="gallery-next-btn lg:hidden flex items-center gap-1 text-xs text-brand-taupe hover:text-brand-dark transition-colors font-medium uppercase tracking-wider mt-1 whitespace-nowrap" data-action="next">
+              <span>Ver mais</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 2: Preenchimento Labial -->
+        <div class="gallery-item w-[85vw] sm:w-[320px] shrink-0 snap-center lg:w-auto flex flex-col gap-4">
+          <div class="compare-wrapper aspect-[3/4]" data-slider>
+            <img src="preenchimento%20labial%20depois.jpg" class="compare-before" alt="Antes Preenchimento" title="Preenchimento Labial Depois" loading="lazy" decoding="async">
+            <div class="compare-after-container">
+              <img src="preenchimento%20labial%20antes.jpg" class="compare-after" alt="Depois Preenchimento" title="Preenchimento Labial Antes" loading="lazy" decoding="async">
+            </div>
+            <div class="compare-handle">
+              <div class="compare-handle-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M11 18l-6-6 6-6M13 6l6 6-6 6"/></svg>
+              </div>
+            </div>
+            <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-10 pointer-events-none">Antes</span>
+            <span class="absolute bottom-4 right-4 bg-brand-taupe/90 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-30 pointer-events-none">Depois</span>
+          </div>
+          <div class="flex justify-between items-start">
+            <div class="pr-2">
+              <h3 class="font-serif text-xl text-brand-dark">Preenchimento Labial</h3>
+              <p class="text-sm text-gray-500 font-light">Contorno, volume sob medida e hidratação profunda.</p>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <button class="gallery-prev-btn lg:hidden flex items-center text-xs text-gray-400 hover:text-brand-taupe transition-colors font-medium uppercase tracking-wider whitespace-nowrap" data-action="prev" title="Voltar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              </button>
+              <button class="gallery-next-btn lg:hidden flex items-center gap-1 text-xs text-brand-taupe hover:text-brand-dark transition-colors font-medium uppercase tracking-wider whitespace-nowrap" data-action="next">
+                <span>Ver mais</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: Minimamente Invasivo -->
+        <div class="gallery-item w-[85vw] sm:w-[320px] shrink-0 snap-center lg:w-auto flex flex-col gap-4">
+          <div class="compare-wrapper aspect-[3/4]" data-slider>
+            <!-- Encode URL properly for spaces and parentheses -->
+            <img src="Procedimento%20minimamente%20invasivo%2C%20sem%20cortes%2C%20sem%20dor%2C%20com%20resultado%20imediato%20lindo!%20(DEPOIS).jpeg" class="compare-before" alt="Depois Procedimento" title="Rejuvenescimento Depois" loading="lazy" decoding="async" style="transform: scale(1.08) translate(-10px, 9px); transform-origin: center;">
+            <div class="compare-after-container">
+              <img src="Procedimento%20minimamente%20invasivo%2C%20sem%20cortes%2C%20sem%20dor%2C%20com%20resultado%20imediato%20lindo!%20(ANTES).jpeg" class="compare-after" alt="Antes Procedimento" title="Rejuvenescimento Antes" loading="lazy" decoding="async">
+            </div>
+            <div class="compare-handle">
+              <div class="compare-handle-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M11 18l-6-6 6-6M13 6l6 6-6 6"/></svg>
+              </div>
+            </div>
+            <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-10 pointer-events-none">Antes</span>
+            <span class="absolute bottom-4 right-4 bg-brand-taupe/90 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-30 pointer-events-none">Depois</span>
+          </div>
+          <div class="flex justify-between items-start">
+            <div class="pr-2">
+              <h3 class="font-serif text-xl text-brand-dark">Rejuvenescimento Express</h3>
+              <p class="text-sm text-gray-500 font-light">Suavização de linhas de expressão sem cortes ou tempo de recuperação.</p>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <button class="gallery-prev-btn lg:hidden flex items-center text-xs text-gray-400 hover:text-brand-taupe transition-colors font-medium uppercase tracking-wider whitespace-nowrap" data-action="prev" title="Voltar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              </button>
+              <button class="gallery-next-btn lg:hidden flex items-center gap-1 text-xs text-brand-taupe hover:text-brand-dark transition-colors font-medium uppercase tracking-wider whitespace-nowrap" data-action="end">
+                <span>Procedimentos</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRATAMENTOS SECTION -->
+  <section id="tratamentos" class="w-full py-24 bg-brand-blue_light relative overflow-hidden">
+    <!-- Abstract Organic Shape Background -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/10 shape-organic blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-taupe/10 shape-organic-2 blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-taupe text-sm uppercase tracking-widest font-semibold mb-2 block">Protocolos</span>
+        <h2 class="font-serif text-3xl md:text-5xl text-brand-dark">A Arte da Estética Avançada</h2>
+      </div>
+      
+      <!-- Swiper Infinite Carousel Container -->
+      <div class="swiper treatments-swiper w-full pt-8 pb-16">
+        <div class="swiper-wrapper">
+          
+          <!-- Slide 1: Toxina -->
+          <div class="swiper-slide w-[80vw] max-w-[320px] pt-16 pb-10 px-2">
+            <div class="relative bg-white rounded-[32px] px-8 pt-20 pb-12 flex flex-col items-center text-center shadow-soft h-full group transition-shadow hover:shadow-lg">
+              
+              <!-- Imagem Vazando no Topo -->
+              <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 bg-brand-blue_light shape-organic flex items-center justify-center transition-transform duration-500 group-hover:scale-105 text-brand-blue border-[4px] border-brand-taupe_light shadow-sm">
+                <!-- Lucide Sparkles Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                </svg>
+              </div>
+
+              <h3 class="font-serif text-xl text-brand-dark mb-4">Harmonização Facial Global</h3>
+              <p class="text-gray-500 font-light text-sm leading-relaxed mb-2">
+                Estruturação completa para um rosto leve e descansado.
+              </p>
+              
+              <!-- Botão Vazando na Base -->
+              <a href="harmonizacao-facial-centro.html" class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-brand-taupe text-white px-8 py-3.5 text-[13px] font-medium uppercase tracking-widest rounded-full hover:bg-brand-dark transition-colors inline-flex items-center shadow-lg whitespace-nowrap">
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 2: Preenchimento -->
+          <div class="swiper-slide w-[80vw] max-w-[320px] pt-16 pb-10 px-2">
+            <div class="relative bg-white rounded-[32px] px-8 pt-20 pb-12 flex flex-col items-center text-center shadow-soft h-full group transition-shadow hover:shadow-lg">
+              
+              <!-- Imagem Vazando no Topo -->
+              <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 bg-brand-taupe_light shape-organic-2 flex items-center justify-center transition-transform duration-500 group-hover:scale-105 text-brand-taupe border-[4px] border-brand-blue_light shadow-sm">
+                <!-- Lucide Droplets Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+                </svg>
+              </div>
+
+              <h3 class="font-serif text-xl text-brand-dark mb-4">Preenchimento Labial</h3>
+              <p class="text-gray-500 font-light text-sm leading-relaxed mb-2">
+                Desenho labial personalizado focado em simetria.
+              </p>
+              
+              <!-- Botão Vazando na Base -->
+              <a href="preenchimento-labial-centro.html" class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-brand-taupe text-white px-8 py-3.5 text-[13px] font-medium uppercase tracking-widest rounded-full hover:bg-brand-dark transition-colors inline-flex items-center shadow-lg whitespace-nowrap">
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 3: Bioestimuladores -->
+          <div class="swiper-slide w-[80vw] max-w-[320px] pt-16 pb-10 px-2">
+            <div class="relative bg-white rounded-[32px] px-8 pt-20 pb-12 flex flex-col items-center text-center shadow-soft h-full group transition-shadow hover:shadow-lg">
+              
+              <!-- Imagem Vazando no Topo -->
+              <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 bg-brand-blue_light shape-organic flex items-center justify-center transition-transform duration-500 group-hover:scale-105 text-brand-blue border-[4px] border-brand-taupe_light shadow-sm">
+                <!-- Lucide Leaf Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 1 8.3A9.2 9.2 0 0 1 11 20z"/>
+                  <path d="M11 20c-1-3 1-6 3-8"/>
+                </svg>
+              </div>
+
+              <h3 class="font-serif text-xl text-brand-dark mb-4">Protocolo de Bigode Chinês</h3>
+              <p class="text-gray-500 font-light text-sm leading-relaxed mb-2">
+                Suavização dos sulcos e rejuvenescimento inferior.
+              </p>
+              
+              <!-- Botão Vazando na Base -->
+              <a href="protocolo-bigode-chines-centro.html" class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-brand-taupe text-white px-8 py-3.5 text-[13px] font-medium uppercase tracking-widest rounded-full hover:bg-brand-dark transition-colors inline-flex items-center shadow-lg whitespace-nowrap">
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 4: Microagulhamento -->
+          <div class="swiper-slide w-[80vw] max-w-[320px] pt-16 pb-10 px-2">
+            <div class="relative bg-white rounded-[32px] px-8 pt-20 pb-12 flex flex-col items-center text-center shadow-soft h-full group transition-shadow hover:shadow-lg">
+              
+              <!-- Imagem Vazando no Topo -->
+              <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 bg-brand-taupe_light shape-organic-2 flex items-center justify-center transition-transform duration-500 group-hover:scale-105 text-brand-taupe border-[4px] border-brand-blue_light shadow-sm">
+                <!-- Lucide Scan/Focus Icon (representing micro skin targets) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+                  <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+                  <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+                  <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+                </svg>
+              </div>
+
+              <h3 class="font-serif text-xl text-brand-dark mb-4">Harmonização Corporal</h3>
+              <p class="text-gray-500 font-light text-sm leading-relaxed mb-2">
+                Protocolos para celulite, enzimas e contorno glúteo.
+              </p>
+              
+              <!-- Botão Vazando na Base -->
+              <a href="harmonizacao-corporal-centro.html" class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-brand-taupe text-white px-8 py-3.5 text-[13px] font-medium uppercase tracking-widest rounded-full hover:bg-brand-dark transition-colors inline-flex items-center shadow-lg whitespace-nowrap">
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 5: Tratamento de Manchas -->
+          <div class="swiper-slide w-[80vw] max-w-[320px] pt-16 pb-10 px-2">
+            <div class="relative bg-white rounded-[32px] px-8 pt-20 pb-12 flex flex-col items-center text-center shadow-soft h-full group transition-shadow hover:shadow-lg">
+              
+              <!-- Imagem Vazando no Topo -->
+              <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 bg-brand-blue_light shape-organic flex items-center justify-center transition-transform duration-500 group-hover:scale-105 text-brand-blue border-[4px] border-brand-taupe_light shadow-sm">
+                <!-- Lucide Sun Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"/>
+                  <path d="M12 2v2"/>
+                  <path d="M12 20v2"/>
+                  <path d="m4.93 4.93 1.41 1.41"/>
+                  <path d="m17.66 17.66 1.41 1.41"/>
+                  <path d="M2 12h2"/>
+                  <path d="M20 12h2"/>
+                  <path d="m6.34 17.66-1.41 1.41"/>
+                  <path d="m19.07 4.93-1.41 1.41"/>
+                </svg>
+              </div>
+
+              <h3 class="font-serif text-xl text-brand-dark mb-4">Manchas e Melasma</h3>
+              <p class="text-gray-500 font-light text-sm leading-relaxed mb-2">
+                Protocolos específicos para uniformizar o tom e devolver a luminosidade natural.
+              </p>
+              
+              <!-- Botão Vazando na Base -->
+              <a href="#agendar" class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-brand-taupe text-white px-8 py-3.5 text-[13px] font-medium uppercase tracking-widest rounded-full hover:bg-brand-dark transition-colors inline-flex items-center shadow-lg whitespace-nowrap">
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="swiper-pagination mt-8 relative"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE / AUTORIDADE (Dobra 4) -->
+  <section id="sobre" class="w-full py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- O "Banner" de Impacto (Mural Artístico da Clínica) -->
+      <div class="w-full bg-brand-taupe_light rounded-[40px] p-8 md:p-16 mb-16 text-center shadow-soft relative overflow-hidden flex items-center justify-center min-h-[350px]">
+        
+        <!-- Mural Artístico de Fundo (Simulando a parede da clínica) -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none opacity-80">
+          <svg viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid slice" class="w-full h-full">
+            <!-- Forma Orgânica Taupe (Esquerda - Vindo do teto) -->
+            <path d="M0,0 L250,0 C300,80 180,180 220,280 C240,340 120,400 50,400 L0,400 Z" fill="#9E8B7D" opacity="0.4"/>
+            
+            <!-- Forma Orgânica Azul (Direita Superior) -->
+            <path d="M700,-20 C850,-10 920,80 820,150 C720,220 580,100 700,-20 Z" fill="#759EBC" opacity="0.7"/>
+            
+            <!-- Forma Orgânica Azul (Direita Inferior) -->
+            <path d="M750,180 C880,120 1050,200 950,450 L600,450 C550,350 620,240 750,180 Z" fill="#759EBC" opacity="0.7"/>
+            
+            <!-- Arte em Linha Contínua (Rosto Feminino) -->
+            <g transform="translate(680, 80) scale(1.1)" stroke="#2a2a2a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M120,260 C100,240 95,200 115,170 C140,130 180,130 200,160 C210,180 205,220 190,260"/>
+              <path d="M110,180 C90,185 85,195 90,205 C95,210 105,210 105,205"/>
+              <path d="M98,225 C90,222 85,228 92,235 C98,240 105,235 105,230"/>
+              <path d="M130,175 C145,170 160,175 165,180"/>
+              <path d="M125,160 C145,150 165,155 175,165"/>
+              <path d="M165,135 C190,120 230,150 240,200 C250,250 220,300 200,320"/>
+              <path d="M200,160 C220,180 230,220 215,260"/>
+            </g>
+
+            <!-- Borboletas em Linha Contínua -->
+            <g stroke="#2a2a2a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Borboleta 1 (Perto do rosto) -->
+              <path d="M620,180 C600,160 630,150 640,170 C650,150 680,160 660,180 C680,200 650,210 640,190 C630,210 600,200 620,180 Z"/>
+              <!-- Borboleta 2 (Mais alta) -->
+              <path d="M800,100 C780,85 805,75 815,90 C825,75 850,85 835,100 C850,115 825,125 815,110 C805,125 780,115 800,100 Z"/>
+            </g>
+          </svg>
+        </div>
+        
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-dark relative z-10 leading-snug max-w-3xl drop-shadow-sm">
+          "Esse espelho reflete seu maior compromisso: <i class="text-brand-blue font-semibold">você!</i>"
+        </h2>
+      </div>
+
+      <!-- Texto Institucional -->
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div class="md:w-1/2">
+          <h3 class="font-serif text-3xl text-brand-dark mb-6">Cuidado que respeita sua história.</h3>
+          <div class="space-y-4 text-gray-600 font-light leading-relaxed">
+            <p>
+              A Dra. Larissa Rapack transformou a RPK Beauty Clinic no principal refúgio de autocuidado do Extremo Sul Catarinense (AMESC). Localizada no Centro de Araranguá, nossa clínica desmistifica o uso de injetáveis.
+            </p>
+            <p>
+              Com absoluta precisão anatômica, garantimos que a estética não transforme quem você é, mas revele a sua melhor versão.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Pequena galeria/visual -->
+        <div class="md:w-1/2 grid grid-cols-2 gap-4">
+          <div class="aspect-square bg-brand-taupe_light rounded-3xl line-taupe p-6 flex flex-col justify-end">
+            <span class="text-4xl font-serif text-brand-blue mb-2">+1000</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Procedimentos<br/>Realizados</span>
+          </div>
+          <div class="aspect-square bg-brand-blue_light rounded-3xl line-blue p-6 flex flex-col justify-end translate-y-6">
+            <span class="text-4xl font-serif text-brand-taupe mb-2">100%</span>
+            <span class="text-xs uppercase tracking-widest text-gray-500">Atendimento Privativo<br/>e Personalizado</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section id="avaliacoes" class="w-full py-24 bg-brand-taupe_light relative overflow-hidden">
+    <!-- Abstract subtle background shape -->
+    <div class="absolute top-0 right-[-10%] w-96 h-96 bg-brand-taupe/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      
+      <div class="text-left md:text-center mb-14">
+        <span class="text-brand-blue text-sm uppercase tracking-[0.2em] font-semibold mb-4 block">Experiências Reais</span>
+        <h2 class="font-serif text-3xl md:text-5xl text-brand-dark mb-4">O que dizem nossas pacientes de Araranguá e Região</h2>
+      </div>
+
+      <!-- Swiper Carousel (z-20 so it sits ON TOP of the frame below) -->
+      <div class="reviews-swiper overflow-visible relative z-20">
+        <div class="swiper-wrapper flex items-end">
+          
+          <!-- Card 1 -->
+          <!-- Note: w-[75vw] md:w-[320px] ensures it's left-aligned and the next card peeks on the right -->
+          <div class="swiper-slide w-[75vw] max-w-[320px]">
+            <!-- Subtle organic shape: rounded-[20px] with larger opposite corners -->
+            <div class="bg-white rounded-[20px] rounded-tl-[40px] rounded-br-[40px] p-8 shadow-xl border border-brand-taupe/10 h-full flex flex-col relative group">
+              <!-- Decorative quotes -->
+              <span class="absolute top-6 right-8 text-6xl text-brand-blue/10 font-serif leading-none group-hover:text-brand-blue/20 transition-colors">"</span>
+              
+              <div class="flex gap-1 mb-6">
+                <!-- 5 Stars -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="text-gray-600 font-light leading-relaxed mb-6 flex-grow text-[13px] relative z-10">
+                Atendimento maravilhoso, os profissionais são excelentes. Foi o lugar que consegui ver mais resultados de verdade. Cuidado ímpar com meu rosto e minha autoestima!
+              </p>
+              <div>
+                <h4 class="font-serif text-[16px] text-brand-dark font-medium">Juliana Costa</h4>
+                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Criciúma | SC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="swiper-slide w-[75vw] max-w-[320px]">
+            <div class="bg-white rounded-[20px] rounded-tl-[40px] rounded-br-[40px] p-8 shadow-xl border border-brand-taupe/10 h-full flex flex-col relative group">
+              <span class="absolute top-6 right-8 text-6xl text-brand-blue/10 font-serif leading-none group-hover:text-brand-blue/20 transition-colors">"</span>
+              <div class="flex gap-1 mb-6">
+                <!-- 5 Stars -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="text-gray-600 font-light leading-relaxed mb-6 flex-grow text-[13px] relative z-10">
+                Fiz o meu primeiro botox e estava com muito receio de ficar artificial. A Dra. Larissa me explicou tudo com muita paciência. O resultado ficou incrivelmente natural!
+              </p>
+              <div>
+                <h4 class="font-serif text-[16px] text-brand-dark font-medium">Beatriz Souza</h4>
+                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Araranguá | SC</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="swiper-slide w-[75vw] max-w-[320px]">
+            <div class="bg-white rounded-[20px] rounded-tl-[40px] rounded-br-[40px] p-8 shadow-xl border border-brand-taupe/10 h-full flex flex-col relative group">
+              <span class="absolute top-6 right-8 text-6xl text-brand-blue/10 font-serif leading-none group-hover:text-brand-blue/20 transition-colors">"</span>
+              <div class="flex gap-1 mb-6">
+                <!-- 5 Stars -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FACC15" class="text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="text-gray-600 font-light leading-relaxed mb-6 flex-grow text-[13px] relative z-10">
+                Uma experiência transformadora. O espaço é lindíssimo e os protocolos de pele me deram uma firmeza que eu não via há anos. Melhor clínica da região.
+              </p>
+              <div>
+                <h4 class="font-serif text-[16px] text-brand-dark font-medium">Fernanda Lima</h4>
+                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Tubarão | SC</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA Inferior Avaliações (SÓ A MOLDURA) -->
+      <!-- O margin negativo puxa a linha da borda pra cima, entrando fisicamente atrás dos cartões -->
+      <div class="max-w-2xl mx-auto relative z-10 -mt-24 pb-12 px-6">
+        <!-- Transparent background, just the blue border to act as a frame. pt-40 pushes the text DOWN so it's not hidden by cards -->
+        <div class="relative bg-transparent pb-10 pt-40 px-8 text-center flex flex-col items-center rounded-[24px] border-[1.5px] border-brand-blue">
+          
+          <h3 class="relative z-10 font-serif text-xl md:text-2xl text-brand-dark mb-6 leading-snug px-4 max-w-md mx-auto">
+            Fale com nossa equipe para conhecer nossos procedimentos e agendar sua avaliação gratuita.
+          </h3>
+          <a href="#agendar" class="relative z-10 bg-brand-taupe text-white px-8 py-3.5 text-[12px] uppercase tracking-widest rounded-full hover:bg-brand-dark transition-colors font-medium shadow-md flex items-center gap-2">
+            Agendar via WhatsApp 
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO LOCALIZAÇÃO & GEO (Google Maps Interativo) -->
+  <section id="localizacao" class="w-full py-20 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Textos e Infos de Localização -->
+        <div class="lg:col-span-5 flex flex-col justify-center">
+          <span class="text-brand-taupe uppercase tracking-widest text-xs font-semibold mb-3">
+            Localização Privilegiada
+          </span>
+          <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-6 leading-tight">
+            No coração de Araranguá
+          </h2>
+          <p class="text-gray-600 font-light leading-relaxed mb-8">
+            Nossa clínica foi planejada para oferecer máximo conforto, privacidade e sofisticação em cada atendimento. Venha nos visitar no Centro de Araranguá.
+          </p>
+
+          <!-- Cards Rápidos de Contato/Endereço -->
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-taupe_light/60 border border-brand-taupe/20">
+              <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-taupe shadow-sm shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-brand-dark text-sm">Endereço</h4>
+                <p class="text-xs text-gray-600 font-light mt-0.5">Av. Getúlio Vargas, 227 - Sl 19 - Edifício Fronteira - Centro, Araranguá - SC, CEP 88900-973</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-taupe_light/60 border border-brand-taupe/20">
+              <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-taupe shadow-sm shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-brand-dark text-sm">Horário de Atendimento</h4>
+                <p class="text-xs text-gray-600 font-light mt-0.5">Segunda a Sexta: 08:30 às 19:00 | Sábado: Com agendamento</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Av.+Get%C3%BAlio+Vargas,+227+-+Centro,+Ararangu%C3%A1+-+SC,+88900-973" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-brand-taupe font-medium text-xs uppercase tracking-widest hover:text-brand-dark transition-colors w-fit group">
+            <span>Abrir no Google Maps</span>
+            <svg class="transform group-hover:translate-x-1 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Container do Mapa com Efeito Visual Grayscale -> Color Hover -->
+        <div class="lg:col-span-7">
+          <div class="relative w-full h-[420px] rounded-[32px] overflow-hidden shadow-soft border line-taupe bg-brand-taupe_light group">
+            <iframe 
+              title="Localização Dra Larissa Rapack no Google Maps"
+              src="https://maps.google.com/maps?q=Av.+Get%C3%BAlio+Vargas,+227+-+Centro,+Ararangu%C3%A1+-+SC,+88900-973&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+              class="w-full h-full border-0 grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="agendar" class="w-full py-24 bg-brand-taupe_light relative overflow-hidden">
+    <!-- Thin line border top -->
+    <div class="absolute top-0 left-0 w-full border-t line-taupe"></div>
+
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mb-6">Pronta para revelar sua melhor versão?</h2>
+      <p class="text-gray-600 font-light mb-10 text-lg">
+        Dê o primeiro passo. Agende sua consulta na RPK Beauty Clinic e vamos juntas montar o seu plano de tratamento.
+      </p>
+      
+      <a href="https://wa.me/5548999616804" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-brand-taupe text-white px-10 py-5 text-sm uppercase tracking-widest font-medium rounded-full hover:bg-brand-dark transition-all shadow-xl shadow-brand-taupe/20">
+        <!-- Ícone WhatsApp -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+        Falar com a Clínica
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-brand-dark text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid md:grid-cols-3 gap-10 mb-12">
+        <!-- Col 1 -->
+        <div>
+          <div class="font-serif text-2xl tracking-widest text-brand-taupe mb-4">
+            RPK BEAUTY CLINIC
+          </div>
+          <p class="text-sm font-light text-gray-400 max-w-xs">
+            Excelência em procedimentos injetáveis e naturalidade no Centro de Araranguá.
+          </p>
+        </div>
+        
+        <!-- Col 2 -->
+        <div>
+          <h4 class="font-medium text-white mb-4 uppercase tracking-wider text-sm">Acesso e Atendimento</h4>
+          <nav class="flex flex-col gap-3 text-sm font-light text-gray-400">
+            <a href="#" class="hover:text-brand-taupe transition-colors w-fit">Home</a>
+            <a href="#sobre" class="hover:text-brand-taupe transition-colors w-fit">Sobre Mim</a>
+            <a href="#tratamentos" class="hover:text-brand-taupe transition-colors w-fit">Procedimentos</a>
+            <span class="mt-2 text-white font-medium uppercase tracking-wider text-xs">Áreas de Atendimento</span>
+            <a href="ararangua-centro.html" class="hover:text-brand-taupe transition-colors w-fit">Centro</a>
+            <a href="ararangua-cidade-alta.html" class="hover:text-brand-taupe transition-colors w-fit">Cidade Alta</a>
+            <a href="ararangua-coloninha.html" class="hover:text-brand-taupe transition-colors w-fit">Coloninha</a>
+            <a href="ararangua-mato-alto.html" class="hover:text-brand-taupe transition-colors w-fit">Mato Alto</a>
+          </nav>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="font-medium text-white mb-4 uppercase tracking-wider text-sm">Contato e Localização</h4>
+          <div class="flex flex-col gap-3 text-sm font-light text-gray-400">
+            <p>Edifício Fronteira - Av. Getúlio Vargas, 227 - Sl 19</p>
+            <p>Centro, Araranguá - SC, 88900-973</p>
+            <p class="mt-2">WhatsApp: <a href="https://wa.me/5548999616804" class="hover:text-brand-taupe transition-colors">(48) 99961-6804</a></p>
+            <a href="https://instagram.com/dralarissarapack" target="_blank" class="hover:text-brand-taupe transition-colors w-fit underline underline-offset-4">
+              @dralarissarapack
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-light gap-4">
+        <p>© <span id="year"></span> Dra. Larissa Rapack. Todos os direitos reservados.</p>
+        <p>Biomédica Esteta - CRBM XXXXX</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Interações Vanilla JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // Initialize Swiper for Tratamentos
+    const treatmentsSwiper = new Swiper('.treatments-swiper', {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      spaceBetween: 30,
+      loop: true,
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    // Initialize Swiper for Reviews (Avaliações)
+    const reviewsSwiper = new Swiper('.reviews-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      grabCursor: true,
+    });
+
+    // Handle Before/After Sliders
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Liquid Glass Slide Tabs (Mobile Dock)
+    const mobileTabs = document.querySelectorAll('.mobile-tab');
+    const slideIndicator = document.getElementById('slide-indicator');
+
+    function updateTabIndicator(activeTab) {
+      if (!activeTab || !slideIndicator) return;
+      
+      // Use offsetLeft instead of boundingClientRect to account for scroll position
+      slideIndicator.style.width = `${activeTab.offsetWidth}px`;
+      slideIndicator.style.left = `${activeTab.offsetLeft}px`;
+
+      // Auto-scroll the nav container so the active tab stays visible
+      const navContainer = activeTab.parentElement;
+      navContainer.scrollTo({
+        left: activeTab.offsetLeft - (navContainer.clientWidth / 2) + (activeTab.clientWidth / 2),
+        behavior: 'smooth'
+      });
+
+      mobileTabs.forEach(tab => {
+        if (tab === activeTab) {
+          tab.classList.add('text-white');
+          tab.classList.remove('text-brand-dark/80');
+        } else {
+          tab.classList.remove('text-white');
+          tab.classList.add('text-brand-dark/80');
+        }
+      });
+    }
+
+    if (mobileTabs.length > 0) {
+      // Set initial tab position
+      setTimeout(() => updateTabIndicator(mobileTabs[0]), 100);
+      window.addEventListener('resize', () => {
+        const currentActive = document.querySelector('.mobile-tab.text-white') || mobileTabs[0];
+        updateTabIndicator(currentActive);
+      });
+
+      mobileTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          updateTabIndicator(tab);
+        });
+      });
+
+      // Update indicator on scroll via IntersectionObserver
+      const sectionIds = ['resultados', 'tratamentos', 'sobre', 'avaliacoes', 'agendar'];
+      const observerOptions = {
+        root: null,
+        rootMargin: '-30% 0px -40% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            const matchingTab = document.querySelector(`.mobile-tab[data-target="${id}"]`);
+            if (matchingTab) {
+              updateTabIndicator(matchingTab);
+            }
+          }
+        });
+      }, observerOptions);
+
+      sectionIds.forEach(id => {
+        const sec = document.getElementById(id);
+        if (sec) observer.observe(sec);
+      });
+    }
+
+    // Multiple Compare Reveal Sliders Logic
+    const sliders = document.querySelectorAll('[data-slider]');
+    
+    sliders.forEach(slider => {
+      const handle = slider.querySelector('.compare-handle');
+      const afterContainer = slider.querySelector('.compare-after-container');
+      let isDragging = false;
+      let lastSparkleTime = 0;
+      let lastPercentage = -1;
+
+      const createSparkles = (percentage) => {
+        const now = performance.now();
+        if (now - lastSparkleTime < 25) return; // Balanced rate
+        lastSparkleTime = now;
+
+        // Spawn 1 to 2 delicate sparkles per tick
+        const count = 1 + Math.floor(Math.random() * 2);
+        
+        for (let i = 0; i < count; i++) {
+          const sparkle = document.createElement('div');
+          const typeRand = Math.random();
+          const isButterfly = typeRand > 0.7; // ~30% chance for a blue butterfly!
+          const isStar = !isButterfly && typeRand > 0.35;
+          
+          const yPos = Math.random() * 100;
+          sparkle.style.top = `${yPos}%`;
+          sparkle.style.left = `${percentage}%`;
+
+          if (isButterfly) {
+            sparkle.className = 'magic-sparkle butterfly';
+            const bColor = '#759EBC';
+            sparkle.innerHTML = `<svg viewBox="0 0 24 24" fill="${bColor}" style="width:100%;height:100%;filter:drop-shadow(0 0 4px ${bColor});"><path d="M12 10c-1.8-2.6-4.8-4-8-3-2.5.8-3.5 3.5-2 5.5 1.8 2.4 5 3 8 1.5m2-4c1.8-2.6 4.8-4 8-3 2.5.8 3.5 3.5 2 5.5-1.8 2.4-5 3-8 1.5m-2 1c-1.2 2-3.5 3.5-6 3-2-.4-3-2.2-1.8-3.8 1.4-1.8 4-2.2 6.5-1.2m1.3 2c1.2 2 3.5 3.5 6 3 2-.4 3-2.2 1.8-3.8-1.4-1.8-4-2.2-6.5-1.2"/></svg>`;
+            const size = 12 + Math.random() * 6; // 12px to 18px
+            sparkle.style.width = `${size}px`;
+            sparkle.style.height = `${size}px`;
+            
+            const angle = (Math.random() - 0.5) * Math.PI;
+            const distance = 15 + Math.random() * 25;
+            const tx = Math.cos(angle) * distance;
+            const ty = -Math.abs(Math.sin(angle) * distance) - 10;
+            const rot = (Math.random() - 0.5) * 50;
+            
+            sparkle.style.setProperty('--tx', `${tx}px`);
+            sparkle.style.setProperty('--ty', `${ty}px`);
+            sparkle.style.setProperty('--rot', `${rot}deg`);
+          } else {
+            sparkle.className = `magic-sparkle ${isStar ? 'star' : 'dot'}`;
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 10 + Math.random() * 22;
+            const tx = Math.cos(angle) * distance;
+            const ty = Math.sin(angle) * distance;
+            
+            const colors = ['#ffffff', '#f2f5f9', '#ffffff', '#759EBC'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            sparkle.style.background = color;
+            sparkle.style.boxShadow = `0 0 6px 1px ${color}80`;
+            sparkle.style.setProperty('--tx', `${tx}px`);
+            sparkle.style.setProperty('--ty', `${ty}px`);
+          }
+
+          slider.appendChild(sparkle);
+          setTimeout(() => sparkle.remove(), 1050);
+        }
+      };
+
+      const setPosition = (percentage) => {
+        percentage = Math.max(0, Math.min(percentage, 100));
+        
+        // Emit sparkle magic if position actually changed
+        if (lastPercentage !== -1 && Math.abs(percentage - lastPercentage) > 0.1) {
+           createSparkles(percentage);
+        }
+        lastPercentage = percentage;
+
+        handle.style.left = `${percentage}%`;
+        afterContainer.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+      };
+
+      // Intro Animation
+      setTimeout(() => {
+        let startPos = 0;
+        const animate = setInterval(() => {
+          startPos += (50 - startPos) * 0.1;
+          setPosition(startPos);
+          if(Math.abs(50 - startPos) < 0.1) {
+            setPosition(50);
+            clearInterval(animate);
+          }
+        }, 16);
+      }, 500);
+
+      const onMove = (e) => {
+        if (!isDragging) return;
+        // Prevent default scrolling on touch while sliding
+        if (e.cancelable) e.preventDefault(); 
+        
+        const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        const rect = slider.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const percentage = (x / rect.width) * 100;
+        
+        setPosition(percentage);
+      };
+
+      const startDrag = (e) => {
+        isDragging = true;
+        onMove(e);
+      };
+
+      const stopDrag = () => {
+        isDragging = false;
+      };
+
+      handle.addEventListener('mousedown', startDrag);
+      window.addEventListener('mouseup', stopDrag);
+      window.addEventListener('mousemove', onMove);
+
+      // passive: false is required to be able to preventDefault() on touchmove
+      handle.addEventListener('touchstart', startDrag, { passive: false });
+      window.addEventListener('touchend', stopDrag);
+      window.addEventListener('touchmove', onMove, { passive: false });
+      
+      handle.addEventListener('dblclick', () => setPosition(50));
+    });
+
+    // Mobile Gallery Logic for Antes e Depois
+    const track = document.getElementById('gallery-track');
+    const galleryNextBtns = document.querySelectorAll('.gallery-next-btn');
+    const galleryPrevBtns = document.querySelectorAll('.gallery-prev-btn');
+
+    // Custom Smooth Scroll with Easing (Bezier-like)
+    function easeOutQuart(t) {
+      return 1 - (--t) * t * t * t;
+    }
+
+    function customSmoothScroll(element, target, duration, direction = 'horizontal') {
+      const isWindow = element === window;
+      const start = direction === 'horizontal' 
+          ? (isWindow ? window.scrollX : element.scrollLeft) 
+          : (isWindow ? window.scrollY : element.scrollTop);
+      
+      const change = target - start;
+      const startTime = performance.now();
+
+      function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = easeOutQuart(progress);
+        
+        const currentPos = start + (change * easeProgress);
+        
+        if (direction === 'horizontal') {
+          if (isWindow) window.scrollTo(currentPos, window.scrollY);
+          else element.scrollLeft = currentPos;
+        } else {
+          if (isWindow) window.scrollTo(window.scrollX, currentPos);
+          else element.scrollTop = currentPos;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+      requestAnimationFrame(animateScroll);
+    }
+
+    galleryNextBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-action');
+        
+        if (action === 'end') {
+          // Scroll to procedimentos
+          const tratamentosSec = document.getElementById('tratamentos');
+          if (tratamentosSec) {
+            const targetY = tratamentosSec.getBoundingClientRect().top + window.scrollY - 80;
+            customSmoothScroll(window, targetY, 1200, 'vertical');
+          }
+        } else {
+          // Smooth scroll to the right
+          const itemWidth = track.querySelector('.gallery-item').offsetWidth + 24; // 24px is gap-6
+          track.style.scrollSnapType = 'none'; // Prevent CSS interference during animation
+          customSmoothScroll(track, track.scrollLeft + itemWidth, 800, 'horizontal');
+          setTimeout(() => { track.style.scrollSnapType = ''; }, 850);
+        }
+      });
+    });
+
+    galleryPrevBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Smooth scroll to the left
+        const itemWidth = track.querySelector('.gallery-item').offsetWidth + 24;
+        track.style.scrollSnapType = 'none';
+        customSmoothScroll(track, track.scrollLeft - itemWidth, 800, 'horizontal');
+        setTimeout(() => { track.style.scrollSnapType = ''; }, 850);
+      });
+    });
+  </script>
+  <style>
+    /* Swiper custom pagination colors */
+    .swiper-pagination-bullet {
+      background: #9E8B7D;
+      opacity: 0.5;
+    }
+    .swiper-pagination-bullet-active {
+      background: #9E8B7D;
+      opacity: 1;
+    }
+  </style>
+</body>
+</html>
