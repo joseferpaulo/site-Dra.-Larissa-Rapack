@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap do Site
+Sitemap: https://dralarissarapack.com.br/sitemap.xml
+
+# GEO / AI Search Engine Bots (Permissao Explicita)
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: GPTBot
+Allow: /
+

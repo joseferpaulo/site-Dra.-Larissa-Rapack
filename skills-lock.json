@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "apify-ultimate-scraper": {
+      "source": "apify/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/apify-ultimate-scraper/SKILL.md",
+      "computedHash": "60c5652a183804376934c14d20378031ff1e7473ec835412bbdabb6bba1fb545"
+    },
+    "designing-beautiful-websites": {
+      "source": "tristanmanchester/agent-skills",
+      "sourceType": "github",
+      "skillPath": "designing-beautiful-websites/SKILL.md",
+      "computedHash": "8c5bd91e0a85c9dd07de4a2b42378020603ce878065ccb382b621004e1e15f62"
+    },
+    "seo-geo": {
+      "source": "resciencelab/opc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-geo/SKILL.md",
+      "computedHash": "1d38520f453282af8712874c360e3e34a379827f737fb536bd45055e2d60d964"
+    }
+  }
+}
