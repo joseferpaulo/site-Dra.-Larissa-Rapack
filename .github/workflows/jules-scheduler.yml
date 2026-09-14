@@ -1,0 +1,29 @@
+name: 🤖 Disparar Jules Silo Builder (Diário)
+
+on:
+  schedule:
+    # Roda todos os dias às 09:00 UTC (06:00 Horário de Brasília)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Permite disparar manualmente pelo painel do GitHub para testar
+
+jobs:
+  executar-jules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chamar Jules REST API
+        run: |
+          curl 'https://jules.googleapis.com/v1alpha/sessions' \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -H "X-Goog-Api-Key: ${{ secrets.JULES_API_KEY }}" \
+            -d '{
+              "prompt": "Execute a tarefa de automação diária do Nível 3. Leia as instruções completas no arquivo .jules/instrucoes-jules.md antes de começar. Lembre-se de ler o .jules/state.json, gerar apenas 1 (uma) página clonada e atualizar o state.json.",
+              "sourceContext": {
+                "source": "sources/github/joseferpaulo/site-Dra.-Larissa-Rapack",
+                "githubRepoContext": {
+                  "startingBranch": "main"
+                }
+              },
+              "automationMode": "AUTO_CREATE_PR",
+              "title": "Jules: Criação de Página de Bairro (Silo Nível 3)"
+            }'
