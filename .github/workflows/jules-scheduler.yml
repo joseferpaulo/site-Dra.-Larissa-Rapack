@@ -24,6 +24,6 @@ jobs:
                   "startingBranch": "main"
                 }
               },
-              "automationMode": "AUTO_CREATE_PR",
+              "automationMode": "AUTO_DIRECT_COMMIT",
               "title": "Jules: Criação de Página de Bairro (Silo Nível 3)"
             }'

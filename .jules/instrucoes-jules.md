@@ -37,12 +37,16 @@ Antes de executar qualquer modificação, você é **obrigado** a ler os seguint
 3. Dentro da `div` com as classes `flex flex-wrap justify-center`, adicione um novo link apontando para a página Nível 3 criada:
    `<a href="[arquivo_destino]" class="border line-taupe px-6 py-2.5 rounded-full text-sm font-medium text-brand-dark hover:bg-brand-taupe hover:text-white transition-colors shadow-sm">[Nome do Bairro]</a>`
 
-### 4. Atualização do Estado
+### 4. Atualização de Arquivos de SEO (sitemap.xml e llms.txt)
+1. Abra o arquivo `sitemap.xml` na raiz do projeto e insira a nova URL (ex: `https://dralarissarapack.com.br/[arquivo_destino]`) seguindo o padrão XML existente, marcando a tag `<changefreq>monthly</changefreq>` e `<priority>0.9</priority>`.
+2. Abra o arquivo `llms.txt` e adicione o link para a nova página na lista, seguindo a estrutura do arquivo.
+
+### 5. Atualização do Estado
 1. No arquivo `state.json`, marque o objeto da página que você acabou de processar alterando seu `"status"` para `"concluido"`.
 2. Verifique se todas as páginas daquele bairro agora estão como `"concluido"`. Se sim, mude o `"status"` do bairro inteiro para `"concluido"`.
 3. Salve o arquivo `state.json`.
 
-### 5. Finalização
+### 6. Finalização
 Faça o commit no repositório com a mensagem no padrão: 
 `feat: adiciona pagina N3 [template_pai] para o bairro [bairro]`
 
