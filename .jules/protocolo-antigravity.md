@@ -17,5 +17,6 @@ Para gerar as páginas de Nível 3 (Ataque), o conteúdo DEVE seguir estas regra
 
 ## 3. Regras de Engenharia e Código (Antigravity)  
 *   **Zero Placeholders:** A copy final entregue deve ser persuasiva, otimizada e pronta para ser colocada no site.  
-*   **Schema Markup (JSON-LD):** É OBRIGATÓRIO gerar o código de marcação de dados estruturados para a página. O script deve incluir a tag `LocalBusiness` e especificar a área de cobertura usando a tag `areaServed` com os bairros alvos.  
-*   **Otimização de Imagens (Alt Text):** Para cada imagem sugerida na página, descreva a cena visualmente (para futura geração no Nano Banana) e exija a criação de um texto alternativo (`alt text`) carregado de SEO Local.
+*   **Schema Markup (JSON-LD) Principal:** É OBRIGATÓRIO gerar o código de marcação de dados estruturados para a página. O script deve incluir a tag `LocalBusiness` e especificar a área de cobertura usando a tag `areaServed` com os bairros alvos.  
+*   **Schema de Imagens (ImageObject - OBRIGATÓRIO):** Para **cada imagem** existente na página, você DEVE gerar um script JSON-LD do tipo `ImageObject`. Neste bloco, inclua a URL da imagem e, obrigatoriamente, as propriedades: `"caption"` (descrevendo o serviço no bairro) e `"contentLocation": { "@type": "Place", "name": "[Bairro Alvo]" }`. Isso é vital para ranquear as imagens no Google Images e Motores de IA (GEO) para pesquisas locais.
+*   **Otimização de Imagens (Alt Text):** Para cada imagem na página, exija a criação de um texto alternativo (`alt text`) carregado de SEO Local (ex: "Paciente realizando [Serviço] na clínica em [Bairro]").
