@@ -1,0 +1,159 @@
+{
+  "bairros": [
+    {
+      "nome": "Cidade Alta",
+      "status": "em_progresso",
+      "paginas": [
+        {
+          "template_pai": "index.html",
+          "arquivo_destino": "index-cidade-alta.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "protocolo-bigode-chines.html",
+          "arquivo_destino": "protocolo-bigode-chines-cidade-alta.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-facial.html",
+          "arquivo_destino": "harmonizacao-facial-cidade-alta.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "preenchimento-labial.html",
+          "arquivo_destino": "preenchimento-labial-cidade-alta.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-corporal.html",
+          "arquivo_destino": "harmonizacao-corporal-cidade-alta.html",
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "nome": "Coloninha",
+      "status": "pendente",
+      "paginas": [
+        {
+          "template_pai": "index.html",
+          "arquivo_destino": "index-coloninha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "protocolo-bigode-chines.html",
+          "arquivo_destino": "protocolo-bigode-chines-coloninha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-facial.html",
+          "arquivo_destino": "harmonizacao-facial-coloninha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "preenchimento-labial.html",
+          "arquivo_destino": "preenchimento-labial-coloninha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-corporal.html",
+          "arquivo_destino": "harmonizacao-corporal-coloninha.html",
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "nome": "Mato Alto",
+      "status": "pendente",
+      "paginas": [
+        {
+          "template_pai": "index.html",
+          "arquivo_destino": "index-mato-alto.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "protocolo-bigode-chines.html",
+          "arquivo_destino": "protocolo-bigode-chines-mato-alto.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-facial.html",
+          "arquivo_destino": "harmonizacao-facial-mato-alto.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "preenchimento-labial.html",
+          "arquivo_destino": "preenchimento-labial-mato-alto.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-corporal.html",
+          "arquivo_destino": "harmonizacao-corporal-mato-alto.html",
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "nome": "Jardim das Avenidas",
+      "status": "pendente",
+      "paginas": [
+        {
+          "template_pai": "index.html",
+          "arquivo_destino": "index-jardim-das-avenidas.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "protocolo-bigode-chines.html",
+          "arquivo_destino": "protocolo-bigode-chines-jardim-das-avenidas.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-facial.html",
+          "arquivo_destino": "harmonizacao-facial-jardim-das-avenidas.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "preenchimento-labial.html",
+          "arquivo_destino": "preenchimento-labial-jardim-das-avenidas.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-corporal.html",
+          "arquivo_destino": "harmonizacao-corporal-jardim-das-avenidas.html",
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "nome": "Urussanguinha",
+      "status": "pendente",
+      "paginas": [
+        {
+          "template_pai": "index.html",
+          "arquivo_destino": "index-urussanguinha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "protocolo-bigode-chines.html",
+          "arquivo_destino": "protocolo-bigode-chines-urussanguinha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-facial.html",
+          "arquivo_destino": "harmonizacao-facial-urussanguinha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "preenchimento-labial.html",
+          "arquivo_destino": "preenchimento-labial-urussanguinha.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-corporal.html",
+          "arquivo_destino": "harmonizacao-corporal-urussanguinha.html",
+          "status": "pendente"
+        }
+      ]
+    }
+  ]
+}

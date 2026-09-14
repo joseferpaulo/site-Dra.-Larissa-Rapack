@@ -23,5 +23,8 @@ Site Institucional e Landing Pages da Dra. Larissa Rapack (Biomédica Esteta).
   - **Endereço**: Edifício Fronteira - Av. Getúlio Vargas, 227 - Sl 19 - Centro, Araranguá - SC, CEP 88900-973
   - **Telefone / WhatsApp**: (48) 99961-6804 (`https://wa.me/5548999616804`)
 
-
-
+- 13/09/2026: Implementação do **Silo SEO Hiperlocal (Método Farol) - Nível 3 (Bairro: Centro)**:
+  - Criadas 5 novas páginas (`index-centro.html`, `harmonizacao-facial-centro.html`, `preenchimento-labial-centro.html`, `harmonizacao-corporal-centro.html`, `protocolo-bigode-chines-centro.html`).
+  - Adaptações de Copy com ancoragem geográfica para locais do Centro de Araranguá (Calçadão, Av. Getúlio Vargas, Praça Hercílio Luz, etc.).
+  - Schema JSON-LD LocalBusiness atualizado com `areaServed`.
+  - Repositório Git local inicializado em preparação para Deploy/Automação Jules isolada do app de finanças.
