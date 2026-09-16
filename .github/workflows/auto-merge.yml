@@ -9,6 +9,9 @@ on:
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
     if: github.actor == 'google-labs-jules[bot]'
     steps:
       - name: Aprovar e Mesclar PR Automaticamente
