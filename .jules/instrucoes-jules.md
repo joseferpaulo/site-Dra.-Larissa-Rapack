@@ -29,7 +29,8 @@ Antes de executar qualquer modificação, você é **obrigado** a ler os seguint
    - **`<meta name="description">`**: Insira de forma fluida o bairro no texto.
    - **JSON-LD Schema (LocalBusiness)**: Adicione o bairro no array `"areaServed"`.
    - **JSON-LD Schema (ImageObject)**: Para **todas as imagens** do HTML original clonado, crie/insira no HTML a tag `<script type="application/ld+json">` configurando o `@type: ImageObject`. É obrigatório usar a tag `"contentLocation"` vinculando a imagem ao Bairro atual.
-   - **Texto da Página (Ancoragem Geográfica)**: Utilize a skill `geo-ararangua.md` para injetar pontos de referência. **Lembre-se:** nunca crie distâncias ilusórias.
+   - **Remoção de Conflitos Geográficos (OBRIGATÓRIO)**: Localize a seção ou iframe do Google Maps (que aponta para a matriz no Centro) e DELETE esse bloco do HTML da página Nível 3. Manter o mapa da matriz em uma página de bairro gera punição no SEO Local.
+   - **Texto da Página (Reescrita Anti-Duplicação)**: Utilize a skill `geo-ararangua.md` para injetar pontos de referência. Você é **OBRIGADO** a reescrever as seções de texto descritivas (H2, H3 e parágrafos principais) para incluir o contexto do bairro (ruas, pontos de referência). NÃO mantenha o texto 100% igual à página mãe, ou o Google nos punirá por conteúdo duplicado.
 
 ### 3. Linkagem Interna (Atualizando a Página Mãe)
 1. Abra o arquivo **Mãe Original** (o arquivo que estava em `"template_pai"`).
