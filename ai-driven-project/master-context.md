@@ -28,3 +28,9 @@ Site Institucional e Landing Pages da Dra. Larissa Rapack (Biomédica Esteta).
   - Adaptações de Copy com ancoragem geográfica para locais do Centro de Araranguá (Calçadão, Av. Getúlio Vargas, Praça Hercílio Luz, etc.).
   - Schema JSON-LD LocalBusiness atualizado com `areaServed`.
   - Repositório Git local inicializado em preparação para Deploy/Automação Jules isolada do app de finanças.
+
+- 24/09/2026: Ativação de Publicação 100% Automática do Jules (`AUTO_DIRECT_COMMIT`):
+  - Mesclada a página Nível 3 `harmonizacao-facial-cidade-alta.html` no repositório.
+  - Atualizado o workflow `.github/workflows/jules-scheduler.yml` para o modo `AUTO_DIRECT_COMMIT`.
+  - Novas páginas Nível 3 agora são salvas diretamente na branch `main` e publicadas automaticamente pelo deploy sem dependência de aprovações manuais via PR.
+
