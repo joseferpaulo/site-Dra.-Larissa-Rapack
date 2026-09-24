@@ -17,7 +17,7 @@
         {
           "template_pai": "harmonizacao-facial.html",
           "arquivo_destino": "harmonizacao-facial-cidade-alta.html",
-          "status": "pendente"
+          "status": "concluido"
         },
         {
           "template_pai": "preenchimento-labial.html",
