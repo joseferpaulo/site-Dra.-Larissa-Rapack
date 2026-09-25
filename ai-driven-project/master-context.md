@@ -34,3 +34,6 @@ Site Institucional e Landing Pages da Dra. Larissa Rapack (Biomédica Esteta).
   - Atualizado o workflow `.github/workflows/jules-scheduler.yml` para o modo `AUTO_DIRECT_COMMIT`.
   - Novas páginas Nível 3 agora são salvas diretamente na branch `main` e publicadas automaticamente pelo deploy sem dependência de aprovações manuais via PR.
 
+- 25/09/2026: Correção do fluxo do Jules e avanço na Cidade Alta:
+  - Corrigido o `automationMode` no `jules-scheduler.yml` para `AUTO_PULL_REQUEST` (pois a API rejeita `AUTO_DIRECT_COMMIT`), com a adição da flag `-f` no cURL para reportar falhas corretamente ao GitHub Actions.
+  - Criada manualmente a página Nível 3 `preenchimento-labial-cidade-alta.html` com Injeção de Schema e Contexto Geográfico Hiperlocal, atualizando `state.json`, `sitemap.xml` e `llms.txt`.
