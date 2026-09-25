@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Chamar Jules REST API
         run: |
-          curl 'https://jules.googleapis.com/v1alpha/sessions' \
+          curl -f 'https://jules.googleapis.com/v1alpha/sessions' \
             -X POST \
             -H "Content-Type: application/json" \
             -H "X-Goog-Api-Key: ${{ secrets.JULES_API_KEY }}" \
@@ -24,6 +24,6 @@ jobs:
                   "startingBranch": "main"
                 }
               },
-              "automationMode": "AUTO_DIRECT_COMMIT",
+              "automationMode": "AUTO_PULL_REQUEST",
               "title": "Jules: Criação de Página de Bairro (Silo Nível 3)"
             }'

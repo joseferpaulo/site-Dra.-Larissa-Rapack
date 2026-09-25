@@ -22,7 +22,7 @@
         {
           "template_pai": "preenchimento-labial.html",
           "arquivo_destino": "preenchimento-labial-cidade-alta.html",
-          "status": "pendente"
+          "status": "concluido"
         },
         {
           "template_pai": "harmonizacao-corporal.html",
