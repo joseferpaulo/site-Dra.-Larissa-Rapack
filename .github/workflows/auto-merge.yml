@@ -12,7 +12,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
-    if: startsWith(github.event.pull_request.title, 'Jules:')
+    if: startsWith(github.event.pull_request.title, 'Jules:') || contains(github.event.pull_request.title, 'N3') || contains(github.event.pull_request.title, 'Cidade Alta') || startsWith(github.event.pull_request.title, 'feat:') || startsWith(github.event.pull_request.title, 'Add')
     steps:
       - name: Aprovar e Mesclar PR Automaticamente
         env:

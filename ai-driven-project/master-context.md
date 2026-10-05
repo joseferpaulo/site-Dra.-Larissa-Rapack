@@ -37,3 +37,8 @@ Site Institucional e Landing Pages da Dra. Larissa Rapack (Biomédica Esteta).
 - 25/09/2026: Correção do fluxo do Jules e avanço na Cidade Alta:
   - Corrigido o `automationMode` no `jules-scheduler.yml` para `AUTO_PULL_REQUEST` (pois a API rejeita `AUTO_DIRECT_COMMIT`), com a adição da flag `-f` no cURL para reportar falhas corretamente ao GitHub Actions.
   - Criada manualmente a página Nível 3 `preenchimento-labial-cidade-alta.html` com Injeção de Schema e Contexto Geográfico Hiperlocal, atualizando `state.json`, `sitemap.xml` e `llms.txt`.
+
+- 05/10/2026: Resolução de Erros do Jules Scheduler (HTTP 400) e Ajuste de Auto-Merge:
+  - **Diagnóstico Erro 400 Bad Request:** A API REST do Google Jules exige `AUTO_CREATE_PR` no campo `automationMode` do JSON payload. O valor anterior (`AUTO_PULL_REQUEST`) fazia a API rejeitar o disparo via GitHub Actions com erro 400 exit code 22.
+  - **Correção no Workflow (`jules-scheduler.yml`):** Atualizado `automationMode` para `AUTO_CREATE_PR`.
+  - **Correção de Auto-Merge (`auto-merge.yml`):** Flexibilizada a regra do `if` para aprovar automaticamente PRs com títulos contendo `Jules:`, `N3`, `Cidade Alta`, `feat:` ou `Add`.
