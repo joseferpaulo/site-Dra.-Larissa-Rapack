@@ -42,3 +42,8 @@ Site Institucional e Landing Pages da Dra. Larissa Rapack (Biomédica Esteta).
   - **Diagnóstico Erro 400 Bad Request:** A API REST do Google Jules exige `AUTO_CREATE_PR` no campo `automationMode` do JSON payload. O valor anterior (`AUTO_PULL_REQUEST`) fazia a API rejeitar o disparo via GitHub Actions com erro 400 exit code 22.
   - **Correção no Workflow (`jules-scheduler.yml`):** Atualizado `automationMode` para `AUTO_CREATE_PR`.
   - **Correção de Auto-Merge (`auto-merge.yml`):** Flexibilizada a regra do `if` para aprovar automaticamente PRs com títulos contendo `Jules:`, `N3`, `Cidade Alta`, `feat:` ou `Add`.
+  - **Auditoria de Páginas e Estado:** Foi verificado que o arquivo `.jules/state.json` está correto. Apesar dos erros nos PRs, as páginas já geradas localmente coincidem com os status "concluido".
+  - **Páginas Nível 3 já existentes (Centro e Cidade Alta):** `index-centro.html`, `harmonizacao-facial-centro.html`, `preenchimento-labial-centro.html`, `harmonizacao-corporal-centro.html`, `protocolo-bigode-chines-centro.html`, `index-cidade-alta.html`, `protocolo-bigode-chines-cidade-alta.html`, `harmonizacao-facial-cidade-alta.html`, e `preenchimento-labial-cidade-alta.html`.
+  - **Próximas 2 páginas na fila de criação do Jules:**
+    1. `harmonizacao-corporal-cidade-alta.html` (encerra o bairro Cidade Alta).
+    2. `index-coloninha.html` (inicia o bairro Coloninha).
