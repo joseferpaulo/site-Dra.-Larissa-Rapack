@@ -2,7 +2,7 @@
   "bairros": [
     {
       "nome": "Cidade Alta",
-      "status": "em_progresso",
+      "status": "concluido",
       "paginas": [
         {
           "template_pai": "index.html",
@@ -27,7 +27,7 @@
         {
           "template_pai": "harmonizacao-corporal.html",
           "arquivo_destino": "harmonizacao-corporal-cidade-alta.html",
-          "status": "pendente"
+          "status": "concluido"
         }
       ]
     },
