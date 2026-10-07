@@ -33,12 +33,12 @@
     },
     {
       "nome": "Coloninha",
-      "status": "pendente",
+      "status": "em_progresso",
       "paginas": [
         {
           "template_pai": "index.html",
           "arquivo_destino": "index-coloninha.html",
-          "status": "pendente"
+          "status": "concluido"
         },
         {
           "template_pai": "protocolo-bigode-chines.html",
