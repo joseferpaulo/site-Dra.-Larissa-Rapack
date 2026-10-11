@@ -33,7 +33,7 @@
     },
     {
       "nome": "Coloninha",
-      "status": "em_progresso",
+      "status": "concluido",
       "paginas": [
         {
           "template_pai": "index.html",
@@ -58,13 +58,13 @@
         {
           "template_pai": "harmonizacao-corporal.html",
           "arquivo_destino": "harmonizacao-corporal-coloninha.html",
-          "status": "pendente"
+          "status": "concluido"
         }
       ]
     },
     {
       "nome": "Mato Alto",
-      "status": "pendente",
+      "status": "em_progresso",
       "paginas": [
         {
           "template_pai": "index.html",
