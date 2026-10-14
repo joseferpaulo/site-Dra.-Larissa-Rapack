@@ -79,7 +79,7 @@
         {
           "template_pai": "harmonizacao-facial.html",
           "arquivo_destino": "harmonizacao-facial-mato-alto.html",
-          "status": "pendente"
+          "status": "concluido"
         },
         {
           "template_pai": "preenchimento-labial.html",
