@@ -95,7 +95,7 @@
     },
     {
       "nome": "Jardim das Avenidas",
-      "status": "em_progresso",
+      "status": "concluido",
       "paginas": [
         {
           "template_pai": "index.html",
@@ -120,7 +120,7 @@
         {
           "template_pai": "harmonizacao-corporal.html",
           "arquivo_destino": "harmonizacao-corporal-jardim-das-avenidas.html",
-          "status": "pendente"
+          "status": "concluido"
         }
       ]
     },
