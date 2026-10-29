@@ -154,6 +154,37 @@
           "status": "concluido"
         }
       ]
+    },
+    {
+      "nome": "Barranca",
+      "status": "em_progresso",
+      "paginas": [
+        {
+          "template_pai": "index.html",
+          "arquivo_destino": "index-barranca.html",
+          "status": "concluido"
+        },
+        {
+          "template_pai": "protocolo-bigode-chines.html",
+          "arquivo_destino": "protocolo-bigode-chines-barranca.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-facial.html",
+          "arquivo_destino": "harmonizacao-facial-barranca.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "preenchimento-labial.html",
+          "arquivo_destino": "preenchimento-labial-barranca.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-corporal.html",
+          "arquivo_destino": "harmonizacao-corporal-barranca.html",
+          "status": "pendente"
+        }
+      ]
     }
   ]
 }
