@@ -172,7 +172,7 @@
         {
           "template_pai": "harmonizacao-facial.html",
           "arquivo_destino": "harmonizacao-facial-barranca.html",
-          "status": "pendente"
+          "status": "concluido"
         },
         {
           "template_pai": "preenchimento-labial.html",
