@@ -216,6 +216,37 @@
           "status": "concluido"
         }
       ]
+    },
+    {
+      "nome": "Centro",
+      "status": "pendente",
+      "paginas": [
+        {
+          "template_pai": "index.html",
+          "arquivo_destino": "index-centro.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "protocolo-bigode-chines.html",
+          "arquivo_destino": "protocolo-bigode-chines-centro.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-facial.html",
+          "arquivo_destino": "harmonizacao-facial-centro.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "preenchimento-labial.html",
+          "arquivo_destino": "preenchimento-labial-centro.html",
+          "status": "pendente"
+        },
+        {
+          "template_pai": "harmonizacao-corporal.html",
+          "arquivo_destino": "harmonizacao-corporal-centro.html",
+          "status": "pendente"
+        }
+      ]
     }
   ]
 }
